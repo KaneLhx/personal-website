@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 import './CustomNavbar.css';
-import {LinkContainer} from 'react-router-bootstrap'
+import {LinkContainer} from 'react-router-bootstrap';
 
 
 class CustomNavbar extends Component {
@@ -14,7 +14,7 @@ class CustomNavbar extends Component {
         <Navbar bg="dark" expand="lg" variant="dark">
             <Container>
                 <LinkContainer to="/home">
-                  <Navbar.Brand><img className="icon" src={process.env.PUBLIC_URL + '/favicon.png'} /></Navbar.Brand>
+                  <Navbar.Brand><img className="icon" src={process.env.PUBLIC_URL + '/favicon.png'} alt="No pic"/></Navbar.Brand>
                 </LinkContainer>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
