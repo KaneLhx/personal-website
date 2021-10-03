@@ -23,6 +23,12 @@
 
 .carousel-caption {
     padding: 0;
-    top: 20em;
+    top: 30%;
     bottom: 0;
+}
+
+@media only screen and (max-width: 750px) {
+    .carousel-control-prev {
+        display: none;
+    }
 }
