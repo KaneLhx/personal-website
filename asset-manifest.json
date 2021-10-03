@@ -1,22 +1,24 @@
 {
   "files": {
-    "main.css": "/personal-website/static/css/main.e0125640.chunk.css",
-    "main.js": "/personal-website/static/js/main.755e7708.chunk.js",
-    "main.js.map": "/personal-website/static/js/main.755e7708.chunk.js.map",
-    "runtime-main.js": "/personal-website/static/js/runtime-main.ed50dae0.js",
-    "runtime-main.js.map": "/personal-website/static/js/runtime-main.ed50dae0.js.map",
-    "static/js/2.6a547539.chunk.js": "/personal-website/static/js/2.6a547539.chunk.js",
-    "static/js/2.6a547539.chunk.js.map": "/personal-website/static/js/2.6a547539.chunk.js.map",
-    "static/js/3.7facd4a3.chunk.js": "/personal-website/static/js/3.7facd4a3.chunk.js",
-    "static/js/3.7facd4a3.chunk.js.map": "/personal-website/static/js/3.7facd4a3.chunk.js.map",
+    "main.css": "/personal-website/static/css/main.3fc730f8.chunk.css",
+    "main.js": "/personal-website/static/js/main.af65c04a.chunk.js",
+    "main.js.map": "/personal-website/static/js/main.af65c04a.chunk.js.map",
+    "runtime-main.js": "/personal-website/static/js/runtime-main.c0acf4fd.js",
+    "runtime-main.js.map": "/personal-website/static/js/runtime-main.c0acf4fd.js.map",
+    "static/js/2.3434af20.chunk.js": "/personal-website/static/js/2.3434af20.chunk.js",
+    "static/js/2.3434af20.chunk.js.map": "/personal-website/static/js/2.3434af20.chunk.js.map",
+    "static/js/3.3ee66570.chunk.js": "/personal-website/static/js/3.3ee66570.chunk.js",
+    "static/js/3.3ee66570.chunk.js.map": "/personal-website/static/js/3.3ee66570.chunk.js.map",
     "index.html": "/personal-website/index.html",
-    "static/css/main.e0125640.chunk.css.map": "/personal-website/static/css/main.e0125640.chunk.css.map",
-    "static/js/2.6a547539.chunk.js.LICENSE.txt": "/personal-website/static/js/2.6a547539.chunk.js.LICENSE.txt"
+    "static/css/main.3fc730f8.chunk.css.map": "/personal-website/static/css/main.3fc730f8.chunk.css.map",
+    "static/js/2.3434af20.chunk.js.LICENSE.txt": "/personal-website/static/js/2.3434af20.chunk.js.LICENSE.txt",
+    "static/media/bowen-island.ed5914b1.jpg": "/personal-website/static/media/bowen-island.ed5914b1.jpg",
+    "static/media/mauritius.1145b5ce.png": "/personal-website/static/media/mauritius.1145b5ce.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.ed50dae0.js",
-    "static/js/2.6a547539.chunk.js",
-    "static/css/main.e0125640.chunk.css",
-    "static/js/main.755e7708.chunk.js"
+    "static/js/runtime-main.c0acf4fd.js",
+    "static/js/2.3434af20.chunk.js",
+    "static/css/main.3fc730f8.chunk.css",
+    "static/js/main.af65c04a.chunk.js"
   ]
 }
