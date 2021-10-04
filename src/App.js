@@ -11,7 +11,7 @@ function App() {
       <HashRouter basename='/'>
         <CustomNavBar />
         <Switch>
-          <Route path="/home"><Home /></Route>
+          <Route path="/"><Home /></Route>
         </Switch>
       </HashRouter>
     </div>

@@ -13,7 +13,7 @@ class CustomNavbar extends Component {
       return (
         <Navbar bg="dark" expand="lg" variant="dark">
             <Container>
-                <LinkContainer to="/home">
+                <LinkContainer to="/">
                   <Navbar.Brand><img className="icon" src={process.env.PUBLIC_URL + '/favicon.png'} alt="No pic"/></Navbar.Brand>
                 </LinkContainer>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -1,24 +1,13 @@
-.image {
+.home_image {
     height: 49em;
 }
 
-.carousel-indicators [data-bs-target] {
-    box-sizing: content-box;
-    flex: 0 1 auto;
-    width: 30px;
-    height: 3px;
-    padding: 0;
-    margin-right: 3px;
-    margin-left: 3px;
-    text-indent: -999px;
-    cursor: pointer;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    opacity: .5;
-    transition: opacity .6s ease;
+.reduced_width {
+    width: 25%;
+}
+
+.normal_width {
+    width: 75%;
 }
 
 .carousel-caption {
@@ -27,8 +16,21 @@
     bottom: 0;
 }
 
-@media only screen and (max-width: 750px) {
-    .carousel-control-prev {
-        display: none;
+.applications_developed {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(175,175,175,1) 0%, rgba(126,187,189,1) 0%, rgba(9,98,105,1) 82%);
+}
+
+.header {
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 1000px) {
+    .reduced_width {
+        width: 75%;
+    }
+    .normal_width {
+        width: 100%;
     }
 }
+
