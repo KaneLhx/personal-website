@@ -9,7 +9,6 @@ import {LinkContainer} from 'react-router-bootstrap';
 
 class CustomNavbar extends Component {
     render() {
-  
       return (
         <Navbar bg="dark" expand="lg" variant="dark">
             <Container>
