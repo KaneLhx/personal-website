@@ -1,4 +1,4 @@
-body {
+.card_container {
     background-image: url("../../Assets/Images/greenlight.jpg"); 
     background-size: cover;
 }
@@ -16,7 +16,7 @@ body {
     justify-content: end;
 }
 
-.card, .card a {
+.business_card, .business_card a {
     font-family: 'Times New Roman', Times, serif;
     background-color: #000000;
     color: #DAA520;

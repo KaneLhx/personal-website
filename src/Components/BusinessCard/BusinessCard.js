@@ -7,16 +7,14 @@ import Image from 'react-bootstrap/Image';
 import Profile from '../../Assets/Images/profile.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faUserTie, faPhone } from '@fortawesome/fontawesome-free-solid'
-
 import './BusinessCard.css';
-
 
 class BusinessCard extends Component {
     render() {
         return (
-            <Container>
+            <Container fluid className="card_container">
                 <div className="d-flex align-items-center justify-content-center card_container">
-                    <Card border="primary">
+                    <Card border="primary" className="business_card">
                         <Card.Header className="text-center" as="h3">
                             <a href="https://www.greenlightinnovation.com/" id="gi_link">Greenlight Innovation Corp</a>
                         </Card.Header>
