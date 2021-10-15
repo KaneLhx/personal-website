@@ -1,10 +1,5 @@
-.card_container {
-    background-image: url("../../Assets/Images/greenlight.jpg"); 
-    background-size: cover;
-}
-
-.card_container {
-    height: 90vh;
+.card_info {
+    height: 92vh;
 }
 
 .profile {
@@ -39,5 +34,9 @@ svg {
 @media only screen and (max-width: 800px) {
    .image_container, .profile_info {
        justify-content: center;
+       font-size: 80%;
    }
+   .card_info {
+        height: 89vh;
+    }
 }

@@ -5,16 +5,28 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Profile from '../../Assets/Images/profile.jpg';
+import Greenlight from '../../Assets/Images/greenlight.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faUserTie, faPhone } from '@fortawesome/fontawesome-free-solid'
 import './BusinessCard.css';
 
 class BusinessCard extends Component {
+
+    componentDidMount(){
+        document.body.style.backgroundImage = `url(${Greenlight})`;
+        document.body.style.backgroundSize = "cover";
+    }
+    
+    componentWillUnmount(){
+        document.body.style.backgroundImage = null;
+        document.body.style.backgroundSize = null;
+    }
+
     render() {
         return (
             <Container fluid className="card_container">
-                <div className="d-flex align-items-center justify-content-center card_container">
-                    <Card border="primary" className="business_card">
+                <div className="d-flex align-items-center justify-content-center card_info">
+                    <Card className="business_card">
                         <Card.Header className="text-center" as="h3">
                             <a href="https://www.greenlightinnovation.com/" id="gi_link">Greenlight Innovation Corp</a>
                         </Card.Header>
@@ -35,9 +47,7 @@ class BusinessCard extends Component {
                         </Card.Body>
                     </Card>
                 </div>
-            </Container>
-                   
-              
+            </Container>   
         )
     }
 }
