@@ -1,0 +1,43 @@
+body {
+    background-image: url("../../Assets/Images/greenlight.jpg"); 
+    background-size: cover;
+}
+
+.card_container {
+    height: 90vh;
+}
+
+.profile {
+    width: 10em;
+    height: 10em;
+}
+
+.image_container {
+    justify-content: end;
+}
+
+.card, .card a {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #000000;
+    color: #DAA520;
+}
+
+.card {
+    border-radius: 2em;
+    padding: 0.5em;
+}
+
+ul li {
+    list-style: None;
+    padding: 0.5em;
+}
+
+svg {
+    margin-right: 0.5em;
+}
+
+@media only screen and (max-width: 800px) {
+   .image_container, .profile_info {
+       justify-content: center;
+   }
+}

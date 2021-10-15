@@ -3,18 +3,18 @@ import React from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import CustomNavBar from './Components/CustomNavbar/CustomNavbar.js'
 import Home from './Components/Home/Home.js';
+import BusinessCard from './Components/BusinessCard/BusinessCard.js';
 
 
 function App() {
   return (
-    <div className="Container">
       <HashRouter basename='/'>
         <CustomNavBar />
         <Switch>
-          <Route path="/"><Home /></Route>
+        <Route path="/business-card"><BusinessCard /></Route>
+        <Route path="/"><Home /></Route>
         </Switch>
       </HashRouter>
-    </div>
   );
 }
 
