@@ -39,7 +39,7 @@ class BusinessCard extends Component {
                                     <ul>
                                         <li><h4>Kane Lo Hog Tian</h4></li>
                                         <li><FontAwesomeIcon icon={faUserTie} />Software Developer</li>
-                                        <li><FontAwesomeIcon icon={faEnvelope} /><a href="mailto: klohogtian@greenlightinnovation.com">klohogtian@greenlightinnovation.com</a></li>
+                                        <li><FontAwesomeIcon icon={faEnvelope} /><a href="mailto: kane.klht@gmail.com">kane.klht@gmail.com</a></li>
                                         <li><FontAwesomeIcon icon={faPhone} />6043384873</li>
                                     </ul>
                                 </Col>
