@@ -6,11 +6,14 @@ import './TicTacToe.css';
 class TicTacToe extends Component {
     render() {
         return(
-            <Container fluid className="d-flex align-items-center justify-content-center game-board">
-                <div>
-                    <Board />
-                </div>
-            </Container>
+            <div>
+                <h3 className="header text-center">Welcome to my tic-tac-toe game</h3>
+                <Container fluid className="d-flex justify-content-center game-board">
+                    <div>
+                        <Board />
+                    </div>
+                </Container>
+            </div>
         );
     }
 }

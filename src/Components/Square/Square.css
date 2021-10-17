@@ -1,5 +1,4 @@
-.square {
-    background: #fff;
+.square, .winSquare {
     border: 1px solid #999;
     float: left;
     font-size: 2em;
@@ -13,8 +12,15 @@
     width: 5em;
 }
 
+.square {
+    background: #fff;
+}
+
+.winSquare {
+    background:#d1e7dd;
+}
 @media only screen and (max-width: 800px) {
-    .square {
+    .square, .winSquare {
         font-size: 1em;
     }
 }
