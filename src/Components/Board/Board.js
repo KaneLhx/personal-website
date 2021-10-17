@@ -98,7 +98,7 @@ class Board extends Component {
             <div>
                 <div className={!this.determineWinner() && !this.isGameDrawn()? "alert alert-info text-center mb-3" : "hide"}><strong>Next Player: </strong>{this.nextPlayer()}</div>
                 <div className={this.determineWinner()? "alert alert-success text-center mb-3" : "hide"}><strong>Player {winner} won!!</strong></div>
-                <div className={this.isGameDrawn()? "alert alert-warning text-center mb-3" : "hide"}><strong>Game Drawn</strong></div>
+                <div className={this.isGameDrawn() && !this.determineWinner()? "alert alert-warning text-center mb-3" : "hide"}><strong>Game Drawn</strong></div>
                 {this.createBoard()}
                 <div className="d-flex justify-content-center">
                     <button className="btn btn-primary mt-3" onClick={() => this.clearGame()}>New Game</button>
