@@ -18,13 +18,17 @@ class Board extends Component {
         if (this.determineWinner() || this.isGameDrawn()) {
             return;
         }
-        squares[value] = this.state.nextPlayerX? 'X' : 'O';
+        squares[value] = this.nextPlayer();
         this.setState(
             {
                 squares: squares, // set the state of all the squares
                 nextPlayerX: !this.state.nextPlayerX, // set it to the next player
             }
         );
+    }
+
+    nextPlayer() {
+        return this.state.nextPlayerX? 'X' : 'O';
     }
 
     showSquare(value) {
@@ -92,8 +96,9 @@ class Board extends Component {
         const winner = this.state.nextPlayerX? 'O' : 'X';
         return (
             <div>
+                <div className={!this.determineWinner() && !this.isGameDrawn()? "alert alert-info text-center mb-3" : "hide"}><strong>Next Player: </strong>{this.nextPlayer()}</div>
                 <div className={this.determineWinner()? "alert alert-success text-center mb-3" : "hide"}><strong>Player {winner} won!!</strong></div>
-                <div className={this.isGameDrawn()? "alert alert-info text-center mb-3" : "hide"}><strong>Game Drawn</strong></div>
+                <div className={this.isGameDrawn()? "alert alert-warning text-center mb-3" : "hide"}><strong>Game Drawn</strong></div>
                 {this.createBoard()}
                 <div className="d-flex justify-content-center">
                     <button className="btn btn-primary mt-3" onClick={() => this.clearGame()}>New Game</button>
