@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+// import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 import './CustomNavbar.css';
 import {LinkContainer} from 'react-router-bootstrap';
@@ -10,7 +10,7 @@ import {LinkContainer} from 'react-router-bootstrap';
 class CustomNavbar extends Component {
     render() {
       return (
-        <Navbar bg="dark" expand="lg" variant="dark">
+        <Navbar sticky="top" bg="dark" expand="lg" variant="dark" collapseOnSelect>
             <Container>
                 <LinkContainer to="/">
                   <Navbar.Brand><img className="icon" src={process.env.PUBLIC_URL + '/favicon.png'} alt="No pic"/></Navbar.Brand>
