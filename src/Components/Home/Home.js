@@ -16,7 +16,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import './Home.css';
-import CustomCard from '../../Components/CustomCard/CustomCard.js'
+import CustomCard from '../../Components/CustomCard/CustomCard.js';
 
 
 function AboutDesc(){

@@ -1,0 +1,14 @@
+body {
+    height : 100%;
+}
+
+.board:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.game-board {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(90,201,152,1) 0%, rgba(6,149,177,1) 68%);
+    height: 49.5em;
+}
