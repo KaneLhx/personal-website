@@ -23,7 +23,7 @@ class CustomNavbar extends Component {
                       <Nav.Link>My Business Card</Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/tic-tac-toe">
-                      <Nav.Link>TicTacToe</Nav.Link>
+                      <Nav.Link>Tic Tac Toe</Nav.Link>
                     </LinkContainer>
                     {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Game</NavDropdown.Item>
