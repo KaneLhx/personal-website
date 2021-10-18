@@ -40,6 +40,6 @@ class CustomNavbar extends Component {
     }
 }
 
-export default CustomNavbar
+export default CustomNavbar;
 
     

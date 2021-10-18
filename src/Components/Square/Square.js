@@ -17,4 +17,4 @@ class Square extends Component {
     }
 }
 
-export default Square
+export default Square;

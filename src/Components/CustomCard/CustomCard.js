@@ -52,4 +52,4 @@ class CustomCard extends Component {
     }
 }
 
-export default CustomCard
+export default CustomCard;

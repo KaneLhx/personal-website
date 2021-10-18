@@ -19,8 +19,9 @@
 .winSquare {
     background:#d1e7dd;
 }
-@media only screen and (max-width: 800px) {
+
+@media only screen and (max-width: 600px) {
     .square, .winSquare {
-        font-size: 1em;
+        font-size: 1.15em;
     }
 }

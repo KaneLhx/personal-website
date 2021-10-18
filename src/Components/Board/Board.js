@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Square from '../../Components/Square/Square.js';
+import {ButtonGroup, Button, ButtonToolbar} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import './Board.css';
 
 
@@ -63,7 +65,12 @@ class Board extends Component {
             {
                 squares: squares, // set the state of all the squares
                 nextPlayerX: !this.state.nextPlayerX, // set it to the next player
-            },   () => { if(this.determineWinner(this.state.squares).length === 0) {this.chooseNextPosition()}}); // choose next position only after changing state and if there is still no winner
+            },   
+            ()  =>   { // choose next position only after changing state, there is still no winner and the player chooses multiplayer
+                        if(this.determineWinner(this.state.squares).length === 0 && this.props.player_option !== "multiplayer") {
+                            this.chooseNextPosition();
+                        }
+                    });
     }
 
     setBoardState(squares, value, nextPlayer) {
@@ -203,22 +210,28 @@ class Board extends Component {
     render() {
         // if next player is X, then the current player who wins will be O
         const winner = this.state.nextPlayerX? 'O' : 'X';
-        console.log(winner)
         const winList = this.determineWinner(this.state.squares);
-        const isGameWon = winList.length > 0; // the list is greater than 0 if we have a winner       
+        const isGameWon = winList.length > 0; // the list is greater than 0 if we have a winner   
+        const gameMode = this.props.player_option === "multiplayer"? "MULTIPLAYER MODE" : "SINGLE PLAYER MODE";    
 
         return (
             <div className="gameContainer">
+                <h4 className="text-center gameMode m-3">{gameMode}</h4>
                 <div className={!isGameWon && !this.isGameDrawn()? "alert alert-info text-center mb-3" : "hide"}><strong>Next Player: </strong>{this.nextPlayer()}</div>
                 <div className={isGameWon? "alert alert-success text-center mb-3" : "hide"}><strong>Player {winner} won!!</strong></div>
                 <div className={this.isGameDrawn() && !isGameWon? "alert alert-warning text-center mb-3" : "hide"}><strong>Game Drawn</strong></div>
                 {this.createBoard(winList)}
-                <div className="d-flex justify-content-center">
-                    <button className="btn btn-primary mt-3" onClick={() => this.clearGame()}>New Game</button>
-                </div>
+                <ButtonToolbar className="d-flex justify-content-center">
+                    <ButtonGroup className="me-2" aria-label="First group">
+                        <Button className="btn btn-primary mt-3" onClick={() => this.clearGame()}>New Game</Button>
+                    </ButtonGroup>
+                    <ButtonGroup className="me-2" aria-label="Second group">
+                        <Link to="/tic-tac-toe" type="button" className="btn btn-success mt-3">Game Options</Link>
+                    </ButtonGroup>
+                </ButtonToolbar>
             </div>
         );
     }
 }
 
-export default Board
+export default Board;
