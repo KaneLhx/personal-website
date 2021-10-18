@@ -15,7 +15,7 @@ class PlayerOption extends Component {
                         <Card.Title className="text-center">Please select from the following options to start the game </Card.Title>
                         <ButtonGroup vertical>
                             <Link type="button" className="btn btn-primary mt-2" to="/tic-tac-toe/single-player">Single Player</Link>
-                            <Link type="button" className="btn btn-success mt-2" to="/tic-tac-toe/multiplayer">Multiple Players</Link>
+                            <Link type="button" className="btn btn-success mt-2" to="/tic-tac-toe/multiplayer">Multiplayer</Link>
                         </ButtonGroup>
                     </Card.Body>
                 </Card>
