@@ -10,13 +10,52 @@ class Board extends Component {
         this.state = {
             squares: Array(9).fill(null), // to save the state of the game
             nextPlayerX: true, // default player is X
-            lineWon: Array(3).fill(null) // to save the line won
         }
+    }
+
+    chooseNextPosition() {
+        const nextPlayer = this.nextPlayer();
+        const previousPlayer = this.state.nextPlayerX? 'O': 'X';
+        const squares = this.state.squares.slice();
+        // get the list of all positions which is still empty
+        let squaresNullIndices = squares.reduce(function(arr, el, i) {
+            if (el === null)
+                arr.push(i);
+            return arr;
+        }, []);
+        
+        if(!this.setStateBasedOnWinningPossibilities(squaresNullIndices, nextPlayer, nextPlayer)) {
+            // if there is no way to win for the next player, check if there is any winning way for the previous player
+            if (!this.setStateBasedOnWinningPossibilities(squaresNullIndices, previousPlayer, nextPlayer)) {
+                // if there is no winning way, randomly choose a position from the list of null indices
+                // squaresNullIndices[i] gives the position in the squares
+                let i = Math.floor(Math.random() * (squaresNullIndices.length));
+                return this.setBoardState(squares, squaresNullIndices[i], nextPlayer);
+            }
+        }
+       
+    }
+    
+    setStateBasedOnWinningPossibilities(squaresNullIndices, player, nextPlayer) {
+        let squares = this.state.squares.slice();
+        const squareList = squares.slice();
+        for(let i=0; i<squareList.length;i++) {     
+            squares[squaresNullIndices[i]] = player;
+            // check if there is a winner
+            if(this.determineWinner(squares).length > 0) {
+                // change the board state
+                this.setBoardState(squares, squaresNullIndices[i], nextPlayer);
+                return true;
+            }
+            squares = squareList.slice();
+        }
+
+        return false;
     }
 
     onClickBoard(value) {
         const squares = this.state.squares.slice(); // copy the array list using slice for immutability
-        if (this.determineWinner().length > 0 || this.isGameDrawn()) {
+        if (this.determineWinner(this.state.squares).length > 0 || this.isGameDrawn()) {
             return;
         }
         squares[value] = this.nextPlayer();
@@ -24,8 +63,17 @@ class Board extends Component {
             {
                 squares: squares, // set the state of all the squares
                 nextPlayerX: !this.state.nextPlayerX, // set it to the next player
+            },   () => { if(this.determineWinner(this.state.squares).length === 0) {this.chooseNextPosition()}}); // choose next position only after changing state and if there is still no winner
+    }
+
+    setBoardState(squares, value, nextPlayer) {
+        squares[value] = nextPlayer;
+        this.setState(
+            {
+                squares: squares, // set the state of all the squares
+                nextPlayerX: !this.state.nextPlayerX // set it to the next player
             }
-        );
+        );  
     }
 
     nextPlayer() {
@@ -56,13 +104,13 @@ class Board extends Component {
         return board;
     }
 
-    determineWinner() {
-        if (this.isHorizontalWin()) {
-            return this.getHorizontalWinLine();
-        } else if (this.isVerticalWin()) {
-            return this.getVeticalWinLine();
-        } else if (this.isDiagonalWin()) {
-            return this.getDiagonalWinLine();
+    determineWinner(squares) {
+        if (this.isHorizontalWin(squares)) {
+            return this.getHorizontalWinLine(squares);
+        } else if (this.isVerticalWin(squares)) {
+            return this.getVeticalWinLine(squares);
+        } else if (this.isDiagonalWin(squares)) {
+            return this.getDiagonalWinLine(squares);
         }
 
         return [];
@@ -72,40 +120,40 @@ class Board extends Component {
         return !this.state.squares.includes(null);
     }
     
-    isHorizontalWin() {
-        return (this.isFirstRowWin() || this.isSecondRowWin() || this.isThirdRowWin());
+    isHorizontalWin(squares) {
+        return (this.isFirstRowWin(squares) || this.isSecondRowWin(squares) || this.isThirdRowWin(squares));
     }
 
-    getHorizontalWinLine() {
-        if (this.isFirstRowWin()) {
+    getHorizontalWinLine(squares) {
+        if (this.isFirstRowWin(squares)) {
             return [0, 1, 2];
-        } else if (this.isSecondRowWin()) {
+        } else if (this.isSecondRowWin(squares)) {
             return [3, 4, 5];
         }
         
         return [6, 7, 8];
     }
 
-    isVerticalWin() {
-        return (this.isFirstColWin() || this.isSecondColWin() || this.isThirdColWin());
+    isVerticalWin(squares) {
+        return (this.isFirstColWin(squares) || this.isSecondColWin(squares) || this.isThirdColWin(squares));
     }
 
-    getVeticalWinLine() {
-        if (this.isFirstColWin()) {
+    getVeticalWinLine(squares) {
+        if (this.isFirstColWin(squares)) {
             return [0, 3, 6];
-        } else if (this.isSecondColWin()) {
+        } else if (this.isSecondColWin(squares)) {
             return [1, 4, 7];
         }
 
         return [2, 5, 8];      
     }
 
-    isDiagonalWin() {
-        return (this.isLeftDiagonalWin() || this.isRightDiagonalWin());
+    isDiagonalWin(squares) {
+        return (this.isLeftDiagonalWin(squares) || this.isRightDiagonalWin(squares));
     }
 
-    getDiagonalWinLine() {
-        if (this.isLeftDiagonalWin()) {
+    getDiagonalWinLine(squares) {
+        if (this.isLeftDiagonalWin(squares)) {
             return [0, 4, 8];
         } 
 
@@ -113,39 +161,37 @@ class Board extends Component {
 
     }
 
-    isFirstRowWin() {
-        return (this.state.squares[0] && this.state.squares[0] === this.state.squares[1] && this.state.squares[1] === this.state.squares[2]);
+    isFirstRowWin(squares) {
+        return (squares[0] && squares[0] === squares[1] && squares[1] === squares[2]);
     }
 
-    isSecondRowWin() {
-        return (this.state.squares[3]  && this.state.squares[3] === this.state.squares[4] && this.state.squares[4] === this.state.squares[5]);
+    isSecondRowWin(squares) {
+        return (squares[3]  && squares[3] === squares[4] && squares[4] === squares[5]);
     }
 
-    isThirdRowWin() {
-        return (this.state.squares[6] && this.state.squares[6] === this.state.squares[7] && this.state.squares[7] === this.state.squares[8]);
+    isThirdRowWin(squares) {
+        return (squares[6] && squares[6] === squares[7] && squares[7] === squares[8]);
     }
 
-    isFirstColWin() {
-        return (this.state.squares[0] && this.state.squares[0] === this.state.squares[3] && this.state.squares[3] === this.state.squares[6]);
+    isFirstColWin(squares) {
+        return (squares[0] && squares[0] === squares[3] && squares[3] === squares[6]);
     }
 
-    isSecondColWin() {
-        return (this.state.squares[1] && this.state.squares[1] === this.state.squares[4] && this.state.squares[4] === this.state.squares[7]);
+    isSecondColWin(squares) {
+        return (squares[1] && squares[1] === squares[4] && squares[4] === squares[7]);
     }
 
-    isThirdColWin() {
-        return (this.state.squares[2] && this.state.squares[2] === this.state.squares[5] && this.state.squares[5] === this.state.squares[8]);
+    isThirdColWin(squares) {
+        return (squares[2] && squares[2] === squares[5] && squares[5] === squares[8]);
     }
 
-    isLeftDiagonalWin() {
-        return (this.state.squares[0] && this.state.squares[0] === this.state.squares[4] && this.state.squares[4] === this.state.squares[8]);
+    isLeftDiagonalWin(squares) {
+        return (squares[0] && squares[0] === squares[4] && squares[4] === squares[8]);
     }
 
-    isRightDiagonalWin() {
-        console.log.apply((this.state.squares[2] && this.state.squares[2] === this.state.squares[4] && this.state.squares[4] === this.state.squares[6]))
-        return (this.state.squares[2] && this.state.squares[2] === this.state.squares[4] && this.state.squares[4] === this.state.squares[6]);
+    isRightDiagonalWin(squares) {
+        return (squares[2] && squares[2] === squares[4] && squares[4] === squares[6]);
     }
-
 
     clearGame() {
         this.setState({
@@ -155,9 +201,12 @@ class Board extends Component {
     }
 
     render() {
+        // if next player is X, then the current player who wins will be O
         const winner = this.state.nextPlayerX? 'O' : 'X';
-        const winList = this.determineWinner();
-        const isGameWon = winList.length > 0; // the list is greater than 0 if we have a winner
+        console.log(winner)
+        const winList = this.determineWinner(this.state.squares);
+        const isGameWon = winList.length > 0; // the list is greater than 0 if we have a winner       
+
         return (
             <div className="gameContainer">
                 <div className={!isGameWon && !this.isGameDrawn()? "alert alert-info text-center mb-3" : "hide"}><strong>Next Player: </strong>{this.nextPlayer()}</div>
