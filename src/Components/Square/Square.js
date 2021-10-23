@@ -10,7 +10,7 @@ class Square extends Component {
     }
     render() {
         return (
-            <button className={this.props.addedClass} onClick={() => this.props.onClick()}>
+            <button className={this.props.addedClass} onClick={() => this.props.onClick()} disabled={this.props.disable}>
                 {this.props.value}
             </button>
         );

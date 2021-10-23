@@ -88,7 +88,8 @@ class Board extends Component {
     }
 
     showSquare(value, addedClass) {
-        return <Square value={this.state.squares[value]} addedClass={addedClass} key={value} onClick={() => this.onClickBoard(value)} />
+        // disable the square of there is a value
+        return <Square value={this.state.squares[value]} disable={this.state.squares[value] !== null? true: false} addedClass={addedClass} key={value} onClick={() => this.onClickBoard(value)} />
     }
 
     createBoard(winList) {

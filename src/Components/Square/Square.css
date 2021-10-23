@@ -20,6 +20,10 @@
     background:#d1e7dd;
 }
 
+.square:disabled, .winSquare:disabled {
+    color: #000000;
+}
+
 @media only screen and (max-width: 600px) {
     .square, .winSquare {
         font-size: 1.15em;

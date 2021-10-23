@@ -6,5 +6,11 @@
 
 .gameOption {
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(90,201,152,1) 0%, rgba(6,149,177,1) 68%);
-    height: 49.5em;
+    height: 50em;
+}
+
+@media  only screen and (min-width: 1200px) {
+    .gameOption {
+        height: 55em;
+    }
 }
