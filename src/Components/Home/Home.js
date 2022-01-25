@@ -28,15 +28,13 @@ function AboutDesc(){
                     <Card.Title>Introduction About Me</Card.Title>
                     <Card.Text>
                         My name is Kane Lo Hog Tian. This website has been developed to show some of my skills and experience.
+                        I am now working as Full Stack Developer at Greenlight Innovation Corp.
                         I have 8 months Co-op experience in Greenlight Innovation as Information System Developer from September 2020 to May 2021 and in Kongsberg Mesotech as Software Engineer from January 2019 to August 2019.
-                        I continue part time job as Full Stack Developer at Greenlight and I am now working as full time developer at that company.
+                        I have continued part time job as Software Developer at Greenlight.
                         I also worked as a User Interface Research and Web Tester as part time during my study  at Simon Fraser University.
                         I finished my undergraduate study with a CGPA of 3.88 and I have received the President's Honour Roll and Dean's Honour Roll.
                         I am passionate in soccer, software and web development and volunteering.
                     </Card.Text>
-                    <div className="text-center">
-                        <Button variant="primary">About me</Button>
-                    </div>
                 </Card.Body>
             </Card>
         </Container>
@@ -81,7 +79,7 @@ class Home extends Component {
                     </Carousel.Item>
                 </Carousel>
                 <br/>
-                <h1 className="text-center">Hello everyone and welcome To This React App</h1>
+                <h1 className="text-center">Hello Everyone And Welcome To This React App</h1>
                 <br/>
                 <AboutDesc />
                 <br/>
