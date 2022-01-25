@@ -29,7 +29,7 @@ function AboutDesc(){
                     <Card.Text>
                         My name is Kane Lo Hog Tian. This website has been developed to show some of my skills and experience.
                         I have 8 months Co-op experience in Greenlight Innovation as Information System Developer from September 2020 to May 2021 and in Kongsberg Mesotech as Software Engineer from January 2019 to August 2019.
-                        I continue part time job as Software Developer at Greenlight and I am now working as full time developer at that company.
+                        I continue part time job as Full Stack Developer at Greenlight and I am now working as full time developer at that company.
                         I also worked as a User Interface Research and Web Tester as part time during my study  at Simon Fraser University.
                         I finished my undergraduate study with a CGPA of 3.88 and I have received the President's Honour Roll and Dean's Honour Roll.
                         I am passionate in soccer, software and web development and volunteering.
@@ -56,7 +56,7 @@ class Home extends Component {
                         alt="GI"
                         />
                         <Carousel.Caption>
-                            <h3>Software Developer At Greenlight Innovation</h3>
+                            <h3>Full Stack Developer At Greenlight Innovation</h3>
                             <p>SFU 2021 Graduate</p>
                         </Carousel.Caption>
                     </Carousel.Item>
